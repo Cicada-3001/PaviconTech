@@ -3,7 +3,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form';
 import { useState } from "react"
 import Link from "next/link"
-import Prompts from './Prompts';
+import Prompts from '../Prompts';
 import { recoverPassword } from '@/app/libs/password';
 
 

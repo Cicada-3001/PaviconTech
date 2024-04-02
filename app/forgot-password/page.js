@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 import { useForm } from 'react-hook-form';
 import { EMAIL_PATTERN, RECOVER_PASSWORD_URL } from '../utils/constants'; 
 import Link from "next/link"
-import ResetPasswordForm from '@/components/ResetPasswordForm';
+import ResetPasswordForm from '@/components/Forms/ResetPasswordForm';
 import Prompts from '@/components/Prompts';
 import axios from 'axios'
 import toast from 'react-hot-toast';

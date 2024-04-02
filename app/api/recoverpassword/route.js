@@ -1,5 +1,5 @@
 import db from "@/app/libs/db";
-import EmailTemplate from "@/components/EmailTemplate";
+import EmailTemplate from "@/components/Email/EmailTemplate";
 import { hash } from "bcrypt";
 import { NextResponse } from "next/server";
 import { Resend } from 'resend';

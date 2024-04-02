@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import { useForm } from 'react-hook-form';
-import EmailTemplate from './EmailTemplate';
+import EmailTemplate from './Email/EmailTemplate';
 
 function Test() {
     const {

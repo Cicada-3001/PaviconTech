@@ -1,6 +1,6 @@
 
 import  { Toaster } from 'react-hot-toast';
-import '../styles/main.scss';
+import '../styles/global.css';
 import { getServerSession } from 'next-auth';
 
 
@@ -10,6 +10,10 @@ export const metadata = {
 }
 
 export default  async function RootLayout({ children}) {
+
+
+  // const pathname = usePathname();
+
 
 
   const session = await getServerSession()
@@ -22,7 +26,6 @@ export default  async function RootLayout({ children}) {
             reverseOrder={false}
            />
           {children}
-
       </body>
     </html>
   )

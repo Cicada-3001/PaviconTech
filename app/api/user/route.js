@@ -11,7 +11,7 @@ export async function POST(request) {
             password
         } = await request.json()
 
-        // Check if user already exists
+    // Check if user already exists
        const userExists = await db.user.findUnique({
             where: {
                 email

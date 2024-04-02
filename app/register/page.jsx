@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import Link from "next/link"
-import { EMAIL_PATTERN, REGISTER_URL } from '../utils/constants';
+import { EMAIL_PATTERN } from '../utils/constants';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import axios from 'axios'
@@ -36,8 +36,6 @@ function Page() {
         console.log(data)
         setLoading(true)
         const response = await axios.post("http://localhost:3000/api/user", data)
-        //const responseData = await response.json()
-        //console.log(responseData)
         if(response.status === 201){
           setLoading(false)
           toast.success("User Created Successfully")
