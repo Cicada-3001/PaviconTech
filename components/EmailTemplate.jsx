@@ -1,45 +1,38 @@
 import React from "react";
 import {
   Body,
-  Button,
   Container,
   Head,
   Html,
-  Img,
   Link,
   Preview,
   Section,
   Text,
 } from "@react-email/components";
 
-const EmailTemplate = ({
-  username,
-  code
-}) => {
+const EmailTemplate = ({username, code}) => {
   const baseUrl = process.env.VERCEL_URL
-  
-
   return (
     <Html>
       <Head />
       <Preview>Pavicon reset your password</Preview>
       <Body style={main}>
         <Container style={container}>
-          <Img
+          {/*<Img
             src={`${baseUrl}/static/logo.png`}
             width="40"
             height="33"
             alt="Pavicon"
-          />
+        />*/}
           <Section>
-            <Text style={text}>Hi {username},</Text>
+            <Text style={text}>Hey {username} !</Text>
             <Text style={text}>
               Someone recently requested a password change for your Pavicon
-              account. If this was you, you can set a new password here:
+              account. To  reset your password, enter the verification code on the unrecognized device.
             </Text>
-            <Button style={button} href={`${baseUrl}/reset-password`}>
-              Reset password
-            </Button>
+             <Text>
+              {code}
+             </Text>
             <Text style={text}>
               If you don't want to change your password or didn't
               request this, just ignore and delete this message.
@@ -51,7 +44,8 @@ const EmailTemplate = ({
                 more security tips.
               </Link>
             </Text>
-            <Text style={text}>Together with Pavicon!</Text>
+            <Text style={text}>Thanks,</Text>
+            <Text style={text}>Pavicon Team</Text>
           </Section>
         </Container>
       </Body>
@@ -59,21 +53,16 @@ const EmailTemplate = ({
   );
 };
 
-EmailTemplate.PreviewProps = {
-  username,
-  code
-};
 
 export default EmailTemplate;
 
 const main = {
-  backgroundColor: "#f6f9fc",
-  padding: "10px 0",
+  backgroundColor: "#ffffff",
+  padding: "16px 16px",
 };
 
 const container = {
   backgroundColor: "#ffffff",
-  border: "1px solid #f0f0f0",
   padding: "45px",
 };
 
@@ -85,6 +74,8 @@ const text = {
   color: "#404040",
   lineHeight: "26px",
 };
+
+
 
 const button = {
   backgroundColor: "#007ee6",

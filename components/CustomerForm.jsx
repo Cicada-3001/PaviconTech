@@ -35,19 +35,18 @@ function Page() {
       try{
         console.log(data)
         setLoading(true)
-        const response = await axios.post("http://localhost:3000/api/user", data)
+        const response = await axios.post("http://localhost:3000/api/customer", data)
         //const responseData = await response.json()
         //console.log(responseData)
         if(response.status === 201){
           setLoading(false)
-          toast.success("User Created Successfully")
+          toast.success("Customer Created Successfully")
           reset()
           router.push("/login")
         }
-        if(response.status === 200){
+        else{
             setLoading(false)
-            setAuthError("User with this emai already exists")
-            toast.error("User  with this email already exists")
+            toast.error("Ops something went wrong")
         }
             
     } catch(error){
@@ -65,7 +64,24 @@ function Page() {
             <h3 className="text-4xl font-extrabold">Sign Up</h3>
             <p className="text-sm mt-6">Welcome back! Please create an account and explore a world of possibilities. Your journey begins here.</p>
           </div>
-         
+          <div className="relative flex items-center">
+            <label className="text-[13px] bg-white absolute px-2 top-[-10px] left-[18px] font-semibold">Firstname</label>
+            <input {...register('firstName', { required: true })} type="text" placeholder="Enter firstname"
+              className="px-4 py-3.5 bg-white w-full text-sm border-2 border-gray-200 focus:border-blue-600 rounded outline-none" />
+            <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#bbb" className="w-[18px] h-[18px] absolute right-4">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+            </svg>
+          </div>
+
+          <div className="relative flex items-center mt-6">
+            <label className="text-[13px] bg-white absolute px-2 top-[-10px] left-[18px] font-semibold">Lastname</label>
+            <input {...register('lastName', { required: true })} type="text" placeholder="Enter lastname"
+              
+                className="px-4 py-3.5 bg-white w-full text-sm border-2 border-gray-200 focus:border-blue-600 rounded outline-none" />
+            <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#bbb" className="w-[18px] h-[18px] absolute right-4">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+            </svg>
+          </div>
           
 
           <div className="relative flex items-center mt-6">
@@ -85,6 +101,36 @@ function Page() {
             </svg>
           </div>
           <p className='text-red-500'>{authError}</p>
+
+
+
+          <div className="relative flex items-center mt-6">
+            <label className="text-[13px] bg-white absolute px-2 top-[-10px] left-[18px] font-semibold">Age</label>
+            <input {...register('age', { required: true,  pattern: /\d+/ })} type="number" placeholder="Enter age"
+              className="px-4 py-3.5 bg-white w-full text-sm border-2 border-gray-200 focus:border-blue-600 rounded outline-none" />
+            <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#bbb" className="w-[18px] h-[18px] absolute right-4">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+            </svg>
+          </div>
+
+          <div className="relative flex items-center mt-6">
+            <label className="text-[13px] bg-white absolute px-2 top-[-10px] left-[18px] font-semibold">Town</label>
+            <input {...register('town', { required: true })} type="text" placeholder="Enter town"
+              className="px-4 py-3.5 bg-white w-full text-sm border-2 border-gray-200 focus:border-blue-600 rounded outline-none" />
+            <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#bbb" className="w-[18px] h-[18px] absolute right-4">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205 3 1m1.5.5-1.5-.5M6.75 7.364V3h-3v18m3-13.636 10.5-3.819" />
+          </svg>
+
+          </div>
+
+
+          <div className="relative flex items-center mt-6">
+            <label className="text-[13px] bg-white absolute px-2 top-[-10px] left-[18px] font-semibold">Gender</label>
+            <select  {...register('gender', { required: true })}  type="text"  className="px-4 py-3.5 bg-white w-full text-sm border-2 border-gray-200 focus:border-blue-600 rounded outline-none" >
+              <option   value="male">Male</option>
+              <option  value="female">Female</option>
+            </select>
+          </div>
 
           <div className="relative flex items-center mt-6">
             <label className="text-[13px] bg-white absolute px-2 top-[-10px] left-[18px] font-semibold">Password</label>
@@ -128,11 +174,8 @@ function Page() {
           )
 
           }
-          
-            
           <p className="text-sm mt-10 text-center">Already have an account <Link href="#" className="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Login</Link></p>
         </form>
-        <Prompts/>
       </div>
     </div>
     )

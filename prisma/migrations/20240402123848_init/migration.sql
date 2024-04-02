@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Auth" ALTER COLUMN "resetCode" SET DATA TYPE TEXT;
