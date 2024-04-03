@@ -40,7 +40,7 @@ function CustomerForm({ customerInfo }) {
 
       if (response.status === 201) {
         setLoading(false);
-        toast.success("Operation success");
+        toast.success("Operation success. Reload the site to see changes.");
         reset();
       } else {
         console.log(response);
