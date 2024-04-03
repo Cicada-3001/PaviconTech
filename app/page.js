@@ -92,7 +92,7 @@ export default function Home() {
           </button>
         </div>
         {isCreating  || formData ? (
-          <CustomerForm customerInfo={...formData}  />
+          <CustomerForm customerInfo={formData}  />
         ) : (
           <Table columns={columns} data={customers}  passFormData={getFormData}/>
         )}
