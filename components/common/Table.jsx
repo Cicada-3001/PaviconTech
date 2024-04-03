@@ -6,7 +6,7 @@ import toast from 'react-hot-toast';
 
 
 
-const TableRow = ({ row, onToggleMenu, isActive }) => {
+const TableRow = ({ row, onToggleMenu, isActive, getRowData}) => {
   
   async function deleteRecord(id) {
     console.log(id);
@@ -25,7 +25,7 @@ const TableRow = ({ row, onToggleMenu, isActive }) => {
     }
   }
 
-  async function editRecord(id) {}
+
 
   return(
     <tr className="bg-white border-b   hover:bg-gray-50 ">
@@ -85,7 +85,7 @@ const TableRow = ({ row, onToggleMenu, isActive }) => {
             className="py-2 text-sm text-gray-700 "
             aria-labelledby="dropdownDefaultButton"
           >
-            <li onClick={() => editRecord(row.id)} className="pointer">
+            <li onClick={() => getRowData(row)} className="pointer">
               <span  className="block px-4 py-2 hover:bg-green-100">
                 Edit
               </span>
@@ -106,7 +106,7 @@ const TableRow = ({ row, onToggleMenu, isActive }) => {
   
       };
 
-const Table = ({ title, columns, data }) => {
+const Table = ({  columns, data, passFormData }) => {
   // State to keep track of the active row's ID
   const [activeRowId, setActiveRowId] = useState(null);
 
@@ -114,6 +114,11 @@ const Table = ({ title, columns, data }) => {
     // If the clicked row's menu is already active, deactivate it, otherwise activate it
     setActiveRowId((prevId) => (prevId === id ? null : id));
   };
+
+  const getRowData = (data) => {
+    passFormData(data)
+  };
+
 
 
   return (
@@ -208,6 +213,7 @@ const Table = ({ title, columns, data }) => {
                   row={row}
                   onToggleMenu={toggleMenu}
                   isActive={activeRowId === row.id}
+                  getRowData={getRowData}
                 />
               );
             })}

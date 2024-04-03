@@ -37,7 +37,11 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [isCreating, setIsCreating] = useState(false);
   const [customers, setCustomers] = useState([]);
+  const [formData, setFormData] = useState(null)
+  
+
   const {  status } = useSession()
+  const columns = ["Firstname", "Lastname", "Age", "Town", "Gender"];
 
   if (status !== "authenticated") {
    redirect("/login")
@@ -58,8 +62,12 @@ export default function Home() {
     }
   };
 
+  const getFormData = (data) => {
+      setFormData({...data})
+  };
 
-  const columns = ["Firstname", "Lastname", "Age", "Town", "Gender"];
+
+  
 
   useEffect(() => {
     setTimeout(() => setLoading(false), 1000);
@@ -74,16 +82,19 @@ export default function Home() {
         <div className="flex justify-end text-center mt-10 mb-4">
           <button
             className="flex items-center bg-boxdark text-bodydark1 px-6 py-2  cursor-pointer"
-            onClick={() => setIsCreating(!isCreating)}
+            onClick={() => {
+              setIsCreating(!isCreating)
+              setFormData(null)
+            } }
           >
-            <span>{isCreating ? "Back" : "New Customer"}</span>
+            <span>{isCreating || formData ? "Back" : "New Customer"}</span>
             <i className="bx bx-caret-right ml-1"></i>
           </button>
         </div>
-        {isCreating ? (
-          <CustomerForm />
+        {isCreating  || formData ? (
+          <CustomerForm customerInfo={...formData}  />
         ) : (
-          <Table title={"Customers"} columns={columns} data={customers} />
+          <Table columns={columns} data={customers}  passFormData={getFormData}/>
         )}
       </DefaultLayout>
     )

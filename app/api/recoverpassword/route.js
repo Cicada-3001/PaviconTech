@@ -59,13 +59,12 @@ export async function POST(request) {
    
 
     const data = await resend.emails.send({
-      from: 'Pavicon <office@baccash.co.ke>',
+      from: 'Pavicon <contact@kompasit.com>',
       to: {email},
       subject:  'RESET PAVICON ACCOUNT PASSWORD',
-      react: <EmailTemplate  username={existingUser.firstName} code={passwordResetCode} />
+      react: <EmailTemplate  username={existingUser.email} code={passwordResetCode} />
     });
 
-    console.log(data)
     
 
     return NextResponse.json({
