@@ -9,11 +9,11 @@ function Prompts() {
         </div>
         <div>
           <h4 className="text-white text-lg font-semibold">Remember Me</h4>
-          <p className="text-[13px] text-white mt-2">Enable the "Remember Me" option for a seamless login experience in future sessions.</p>
+          <p className="text-[13px] text-white mt-2">Enable the &quot;Remember Me&quot; option for a seamless login experience in future sessions.</p>
         </div>
         <div>
           <h4 className="text-white text-lg font-semibold">Forgot Password?</h4>
-          <p className="text-[13px] text-white mt-2">Easily recover your account by clicking on the "Forgot Password?" link.</p>
+          <p className="text-[13px] text-white mt-2">Easily recover your account by clicking on the &quot;Forgot Password?&quot; link.</p>
         </div>
       </div>
     )

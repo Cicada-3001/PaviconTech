@@ -4,6 +4,7 @@ import Link from "next/link"
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import axios from 'axios'
+import { createCustomer } from '@/app/libs/customer';
 
 
 function CustomerForm() {
@@ -20,15 +21,16 @@ function CustomerForm() {
 
     
     async function onSubmit(data){
+      console.log(data)
       try{
         setLoading(true)
-        const response = await axios.post("http://localhost:3000/api/customer", data)
+        const response = await createCustomer(data)
         if(response.status === 201){
           setLoading(false)
           toast.success("Customer Created Successfully")
           reset()
-          router.push("/login")
         }else{
+            console.log(response)
             setLoading(false)
             setError("Error creating customer")
             toast.error("Error creating customer")
@@ -119,7 +121,7 @@ function CustomerForm() {
                   
                 </div>
 
-                <p className='text-red-500'>{error}</p>
+                <p className='text-red-500 mb-5'>{error}</p>
 
                 
                 {

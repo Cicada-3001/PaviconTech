@@ -113,7 +113,7 @@ function Page() {
 
           }
           </div>
-          <p className="text-sm mt-10 text-center">Don't have an account <Link href="/register" className="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</Link></p>
+          <p className="text-sm mt-10 text-center">Don&apos;t have an account <Link href="/register" className="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</Link></p>
         </form>
         <Prompts/>
       </div>

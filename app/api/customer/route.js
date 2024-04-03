@@ -14,22 +14,19 @@ export async function POST(request) {
             gender
         } = await request.json()
 
-        
-        const newUser= await db.user.create({
+        const newCustomer= await db.customer.create({
             data: {
                 firstName,
                 lastName,
-                email,
                 age,
                 town,
                 gender,
-                password:hashedPassword
             }
         })
 
         return NextResponse.json({
             message: "Customer created Successfully",
-            user:  newUser
+            customer:  newCustomer
         }, {status: 201})
     }catch(error){
         return NextResponse.json({error}, {status: 500})
@@ -37,14 +34,13 @@ export async function POST(request) {
 }
 
 
-
 export async function GET(request) {
     try{
         const customers = await db.customer.findMany()
         return NextResponse.json({
-            message: "Customer created Successfully",
+            message: "Success",
             customers
-        }, {status: 201})
+        }, {status: 200})
     }catch(error){
         return NextResponse.json({error}, {status: 500})
     }
@@ -53,7 +49,7 @@ export async function GET(request) {
 
 
 export async function UPDATE(request) {
-    const { id } = request.json()
+    const { id } = await request.json()
     try{
         const customer = await db.customer.update({
             where: {
@@ -61,7 +57,7 @@ export async function UPDATE(request) {
             }
         })
         return NextResponse.json({
-            message: "User Updated Successfully",
+            message: "success",
             customer
         }, {status: 200})
     }catch(error){
@@ -72,9 +68,9 @@ export async function UPDATE(request) {
 
 
 export async function DELETE(request) {
-    const{ id } = request.json()
+    const{ id } = await  request.json()
     try{
-        const customers = await db.customer.delete(
+        const customer = await db.customer.delete(
             {
                 where: { 
                     id
@@ -83,8 +79,8 @@ export async function DELETE(request) {
         )
 
         return NextResponse.json({
-            message: "User deleted Successfully",
-            customers
+            message: "success",
+            customer
         }, {status: 200})
     }catch(error){
         return NextResponse.json({error}, {status: 500})
