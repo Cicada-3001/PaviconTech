@@ -2,9 +2,9 @@ import axios from 'axios'
 
 
 export const recoverPassword = async (data) =>{
-    return await axios.post("http://localhost:3000/api/recoverpassword", data)
+    return await axios.post("https://pavicon-tech.vercel.app/api/recoverpassword", data)
 }
 
 export const resetPassword = async (data) =>{
-    return await axios.post("http://localhost:3000/api/resetpassword", data)
+    return await axios.post("https://pavicon-tech.vercel.app/api/resetpassword", data)
 }

@@ -35,7 +35,7 @@ function Page() {
       try{
         console.log(data)
         setLoading(true)
-        const response = await axios.post("http://localhost:3000/api/user", data)
+        const response = await axios.post("https://pavicon-tech.vercel.app/api/user", data)
         if(response.status === 201){
           setLoading(false)
           toast.success("User Created Successfully")

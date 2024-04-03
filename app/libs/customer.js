@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const customerUrl = "http://localhost:3000/api/customer";
+const customerUrl = "https://pavicon-tech.vercel.app/api/customer";
+//const customerUrl = `${process.env.BASE_URL}/api/customer`
 
 export const createCustomer = async (data) => {
   return await axios.post(customerUrl, data);
