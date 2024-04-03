@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Loader from "@/components/common/Loader";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
-import Table from "@/components/common/Table";
+import Table from "@/components/comCmon/Table";
 import CustomerForm from "@/components/Forms/CustomerForm";
 import { getCustomers } from "./libs/customer";
 
