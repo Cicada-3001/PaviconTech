@@ -1,10 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-
+import { useSession } from "next-auth/react"
 const Header = ({
   sidebarOpen,
   setSidebarOpen
 }) => {
+  const { data: session } = useSession()
   return (
     <header className="sticky top-0 z-999 flex w-full bg-white drop-shadow-1" >
       <div className="flex flex-grow items-center justify-between px-4 py-4 shadow-2 md:px-6 2xl:px-11">
@@ -53,8 +54,8 @@ const Header = ({
           {/* <!-- Hamburger Toggle BTN --> */}
 
           <Link className="block flex-shrink-0 lg:hidden" href="/">
-              <div className="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gray-100 rounded-full">
-                  <span className="font-medium text-gray-600 bg-gray-900">JL</span>
+              <div className="relative inline-flex items-center justify-center w-full h-10 p-3 overflow-hidden bg-blue-100 rounded-full">
+                  <span className="font-medium text-gray-600 bg-gray-900">{session?.session?.user?.email}</span>
               </div>
           </Link>
         </div>

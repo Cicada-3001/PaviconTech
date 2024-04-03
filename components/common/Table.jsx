@@ -43,7 +43,7 @@ const TableRow = ({ row, onToggleMenu, isActive }) => {
     </td>
     <th
       scope="row"
-      className="flex items-center px-6 py-4 capitalize text-gray-900 whitespace-nowrap "
+      className="flex items-center px-6 py-4 capitalize text-grey-800  whitespace-nowrap "
     >
       <div className="relative border bg-grey-900 inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gray-100 rounded-full">
         <span className="font-medium text-gray-600 uppercase">
@@ -54,23 +54,23 @@ const TableRow = ({ row, onToggleMenu, isActive }) => {
         <div className="text-base font-semibold">{row.firstName}</div>
       </div>
     </th>
-    <td className="px-6 py-4 capitalize">{row.lastName}</td>
-    <td className="px-6 py-4 capitalize">{row.age}</td>
-    <td className="px-6 py-4 capitalize">{row.town}</td>
-    <td className="px-6 py-4 capitalize">{row.gender}</td>
-    <td className="px-6 py-4 capitalize relative">
+    <td className="px-6 py-4 capitalize text-grey-800">{row.lastName}</td>
+    <td className="px-6 py-4 capitalize text-grey-800">{row.age}</td>
+    <td className="px-6 py-4 capitalize text-grey-800">{row.town}</td>
+    <td className="px-6 py-4 capitalize text-grey-800">{row.gender}</td>
+    <td className="px-6 py-4 capitalize text-grey-800 relative">
       <span onClick={() => onToggleMenu(row.id)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
-          stroke-width="1.5"
+          strokeWidth="1.5"
           stroke="currentColor"
-          class="w-6 h-6"
+          className="w-6 h-6"
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
             d="M12 6.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 12.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5ZM12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5Z"
           />
         </svg>
@@ -178,7 +178,7 @@ const Table = ({ title, columns, data }) => {
       </div>
       <div className="scroll-container no-scrollbar">
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 no-scrollbar">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-50">
+          <thead className="text-xs text-gray-900 uppercase bg-gray-50">
             <tr>
               <th scope="col" className="p-4">
                 <div className="flex items-center">
@@ -194,7 +194,7 @@ const Table = ({ title, columns, data }) => {
               </th>
 
               {columns.map((column, index) => (
-                <th key={column} scope="col" className="px-6 py-3">
+                <th key={column} scope="col" className="px-6 py-3 text-black">
                   {column}
                 </th>
               ))}

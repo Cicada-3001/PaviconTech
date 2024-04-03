@@ -7,7 +7,17 @@ import axios from 'axios'
 import { createCustomer } from '@/app/libs/customer';
 
 
-function CustomerForm() {
+function CustomerForm({customerInfo}) {
+    // If customerInfo is not passed, set default values
+    const {
+      id = '',
+      firstName = '',
+      lastName = '',
+      age = 0,
+      town = '',
+      gender = ''
+    } = customerInfo || {};
+
     const [loading,setLoading ] = useState(false)
     const [error, setError ] = useState('')
 
@@ -63,6 +73,7 @@ function CustomerForm() {
                     <input
                       {...register('firstName', { required: true })}
                       type="text"
+                      value={firstName}
                       placeholder="Enter first name"
                       className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter "
                     />
@@ -75,6 +86,7 @@ function CustomerForm() {
                     <input
                       {...register('lastName', { required: true })}
                       type="text"
+                      value={lastName}
                       placeholder="Enter last name"
                       className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter "
                     />
@@ -88,6 +100,7 @@ function CustomerForm() {
                   <input
                     {...register('age', { required: true })}
                     type="number"
+                    value={age}
                     placeholder="Enter age"
                     className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter "
                   />
@@ -100,6 +113,7 @@ function CustomerForm() {
                   <input
                     {...register('town', { required: true })}
                     type="text"
+                    value={town}
                     placeholder="Enter Town"
                     className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter "
                   />
